@@ -20,31 +20,7 @@
 --
 CREATE DATABASE task_management;
 USE task_management;
-DROP TABLE IF EXISTS `employee`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `employee` (
-  `employeeId` int(11) NOT NULL AUTO_INCREMENT,
-  `endTask` date DEFAULT NULL,
-  `employeeName` varchar(255) DEFAULT NULL,
-  `startTask` date DEFAULT NULL,
-  `taskDescription` varchar(255) DEFAULT NULL,
-  `project_Id` int(11) NOT NULL,
-  PRIMARY KEY (`employeeId`),
-  KEY `FK3b0hd6hfo2wn44g5dhcnxlw66` (`project_Id`),
-  CONSTRAINT `FK3b0hd6hfo2wn44g5dhcnxlw66` FOREIGN KEY (`project_Id`) REFERENCES `project` (`projectId`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `employee`
---
-
-LOCK TABLES `employee` WRITE;
-/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (7,'2017-04-30','Joey','2017-04-01','UI',1),(8,'2017-04-30','Ross','2017-04-01','Backend',1),(9,'2017-04-28','Monica','2017-04-02','Backend',1),(10,'2017-04-30','Chandler','2017-04-01','Data analysis',3),(11,'2017-04-18','Rachel','2017-04-11','Sales',3),(12,NULL,'Phoebe',NULL,NULL,5),(13,NULL,'Mike',NULL,NULL,5),(14,NULL,'Sawyer',NULL,NULL,4);
-/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `project`
@@ -79,5 +55,31 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+DROP TABLE IF EXISTS `employee`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `employee` (
+  `employeeId` int(11) NOT NULL AUTO_INCREMENT,
+  `endTask` date DEFAULT NULL,
+  `employeeName` varchar(255) DEFAULT NULL,
+  `startTask` date DEFAULT NULL,
+  `taskDescription` varchar(255) DEFAULT NULL,
+  `project_Id` int(11) NOT NULL,
+  PRIMARY KEY (`employeeId`),
+  KEY `FK3b0hd6hfo2wn44g5dhcnxlw66` (`project_Id`),
+  CONSTRAINT `FK3b0hd6hfo2wn44g5dhcnxlw66` FOREIGN KEY (`project_Id`) REFERENCES `project` (`projectId`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employee`
+--
+
+LOCK TABLES `employee` WRITE;
+/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
+INSERT INTO `employee` VALUES (7,'2017-04-30','Joey','2017-04-01','UI',1),(8,'2017-04-30','Ross','2017-04-01','Backend',1),(9,'2017-04-28','Monica','2017-04-02','Backend',1),(10,'2017-04-30','Chandler','2017-04-01','Data analysis',3),(11,'2017-04-18','Rachel','2017-04-11','Sales',3),(12,NULL,'Phoebe',NULL,NULL,5),(13,NULL,'Mike',NULL,NULL,5),(14,NULL,'Sawyer',NULL,NULL,4);
+/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+UNLOCK TABLES;
 
 -- Dump completed on 2017-04-26 15:39:33
